@@ -8,6 +8,8 @@ class JobsController < ApplicationController
     job = Job.new
     job.title = params[:job][:title]
     job.description = params[:job][:description]
+    job.date_completed = params[:date]
+    job.urgent = params[:job][:urgent]
     if job.save
       render json: job
     else
@@ -31,7 +33,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit( :title, :description, :urgent, :date_completed)
+    params.require(:job).permit( :title, :description, :date, :urgent)
   end
 
 end
