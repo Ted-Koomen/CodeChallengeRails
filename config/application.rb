@@ -31,15 +31,20 @@ module CodeChallengeRails
     config.api_only = true
 
     config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => '*'
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(","),
+      'Access-Control-Allow-Methods' => %w{GET POST OPTIONS PUT PATCH}.join(",")
     }
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-    end
+
+
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins 'http://localhost:3001'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options, :head],
+    #     'Access-Control-Allow-Origin' => '*'
+    #   end
+    # end
 
   end
 end

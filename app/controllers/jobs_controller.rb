@@ -20,10 +20,14 @@ class JobsController < ApplicationController
 
   def update
     job = Job.find(params[:id].to_i)
-    if job.update(title: params[:title], description: params[:description], date_completed: params[:date_completed], urgent: params[:urgent])
-      render json: "Successfully Updated!"
+    if job.update_job(params)
+      render :job
+    else
+      render "Error", status: 400
     end
+
   end
+
   # def new
   #   job = Job.new
   #   job.title = params[:content]
