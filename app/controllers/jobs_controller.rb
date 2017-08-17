@@ -10,6 +10,7 @@ class JobsController < ApplicationController
     job.description = params[:job][:description]
     job.date_completed = params[:date]
     job.urgent = params[:job][:urgent]
+    job.phone_number = params[:phoneNumber]
 
     if job.save
       render json: job
@@ -32,23 +33,11 @@ class JobsController < ApplicationController
     job.destroy
   end
 
-  # def new
-  #   job = Job.new
-  #   job.title = params[:content]
-  #   job.description = params[:description]
-  #   job.importance = params[:urgent]
-  #   job.date_completed = params[:date_completed]
-  #   if job.save
-  #     render json: job
-  #   else
-  #     render "Save unsucessful"
-  #   end
-  # end
 
   private
 
   def job_params
-    params.require(:job).permit( :title, :description, :date, :urgent)
+    params.require(:job).permit( :title, :description, :date, :urgent, :phoneNumber)
   end
 
 end

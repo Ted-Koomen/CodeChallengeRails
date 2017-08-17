@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170813192915) do
     t.text "description", null: false
     t.boolean "urgent", null: false
     t.datetime "date_completed", null: false
+    t.text "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

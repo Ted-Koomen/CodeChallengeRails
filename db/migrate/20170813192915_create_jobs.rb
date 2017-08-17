@@ -5,6 +5,7 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.text :description, null: false
       t.boolean :urgent, null: false
       t.datetime :date_completed, null: false
+      t.text :phone_number, nulL: false
 
       t.timestamps
     end

@@ -5,6 +5,7 @@ class Job < ApplicationRecord
     self.update(title: params[:title] || self.title)
     self.update(description: params[:description] || self.description)
     self.update(date_completed: params[:date_completed] || self.date_completed)
+    self.update(phone_number: params[:phoneNumber])
     if params[:urgent] != nil
       self.update(urgent: params[:urgent])
     else
