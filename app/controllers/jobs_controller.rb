@@ -10,6 +10,7 @@ class JobsController < ApplicationController
     job.description = params[:job][:description]
     job.date_completed = params[:date]
     job.urgent = params[:job][:urgent]
+
     if job.save
       render json: job
     else
@@ -21,8 +22,6 @@ class JobsController < ApplicationController
     job = Job.find(params[:id].to_i)
     if job.update(title: params[:title], description: params[:description], date_completed: params[:date_completed], urgent: params[:urgent])
       render json: "Successfully Updated!"
-    else
-      render json: "Errors"
     end
   end
   # def new

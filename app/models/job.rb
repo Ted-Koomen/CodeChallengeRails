@@ -1,3 +1,3 @@
 class Job < ApplicationRecord
-  validates :title, :description, :urgent, :date_completed, presence: true
+  validates :title, :description, :date_completed, presence: true
 end
