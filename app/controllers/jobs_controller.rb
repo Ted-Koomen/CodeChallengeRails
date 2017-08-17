@@ -13,7 +13,7 @@ class JobsController < ApplicationController
     if job.save
       render json: job
     else
-      render "Save Unsuccessful"
+      render json: job.errors.full_messages, status: 400
     end
   end
 
