@@ -17,6 +17,11 @@ class JobsController < ApplicationController
     end
   end
 
+  def update
+    job = Job.find(params[:id].to_i)
+    job.update(title: params[:title], description: params[:description])
+    binding.pry
+  end
   # def new
   #   job = Job.new
   #   job.title = params[:content]
