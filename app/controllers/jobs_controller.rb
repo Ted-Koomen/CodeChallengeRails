@@ -25,7 +25,11 @@ class JobsController < ApplicationController
     else
       render "Error", status: 400
     end
+  end
 
+  def destroy
+    job = Job.find(params[:id].to_i)
+    job.destroy
   end
 
   # def new
