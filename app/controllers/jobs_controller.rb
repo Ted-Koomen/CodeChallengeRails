@@ -19,8 +19,11 @@ class JobsController < ApplicationController
 
   def update
     job = Job.find(params[:id].to_i)
-    job.update(title: params[:title], description: params[:description])
-    binding.pry
+    if job.update(title: params[:title], description: params[:description], date_completed: params[:date_completed], urgent: params[:urgent])
+      render json: "Successfully Updated!"
+    else
+      render json: "Errors"
+    end
   end
   # def new
   #   job = Job.new
